@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<section class="vh-100 gradient-custom">
+<form action="login" method="get" class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -34,6 +34,7 @@
 
                             <div data-mdb-input-init class="form-outline mb-4">
                                 <input
+                                        name = "email"
                                         type="email"
                                         id="email"
                                         class="form-control-lg w-75 color-dark-green input-email"
@@ -44,6 +45,7 @@
 
                             <div data-mdb-input-init class="form-outline mb-4">
                                 <input
+                                        name = "password"
                                         type="password"
                                         id="senha"
                                         class="form-control-lg w-75 color-dark-green input-senha"
@@ -70,7 +72,7 @@
             </div>
         </div>
     </div>
-</section>
+</form>
 
 <script>
     function validarFormulario() {

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <title>Fintech</title>
   <link rel="stylesheet" href="./resources/css/bootstrap.css">
   <link rel="stylesheet" href="./resources/assets/css/carousel.css">
 
