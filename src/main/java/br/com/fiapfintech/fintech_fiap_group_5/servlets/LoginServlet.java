@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/login")
@@ -26,10 +27,15 @@ public class LoginServlet extends HttpServlet {
             final List<User> users = userDAO.getAll();
 
             this.validateLoginAccess(users, email, password);
-            response.sendRedirect("index.jsp");
-            userDAO.closeConnection();
+            response.sendRedirect("home.jsp");
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                userDAO.closeConnection();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }
@@ -41,9 +47,9 @@ public class LoginServlet extends HttpServlet {
             if(!hasEmailOrPassword) {
                 throw new BadRequestException(KeyMessageException.EMAIL_OU_SENHA_INVALIDO.getMessage());
             }
-
-            System.out.println("Login efetuado com sucesso!");
         });
+
+        System.out.println("Login efetuado com sucesso!");
     }
 
 }

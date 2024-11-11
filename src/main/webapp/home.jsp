@@ -16,10 +16,8 @@
   <meta name="description" content="">
   <title>Dashboard</title>
 
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-  <link href="resources/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -292,7 +290,7 @@
 
             <ul class="nav flex-column mb-auto">
               <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                <a class="nav-link d-flex align-items-center gap-2" href="index.jsp">
                   <svg class="bi">
                     <use xlink:href="#door-closed" />
                   </svg>

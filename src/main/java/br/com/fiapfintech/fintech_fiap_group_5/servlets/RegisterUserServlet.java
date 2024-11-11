@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.sql.SQLException;
+
 @WebServlet(urlPatterns = "/criar-conta")
 public class RegisterUserServlet extends HttpServlet {
     private UserDAO userDAO = new UserDAO();
@@ -21,10 +23,15 @@ public class RegisterUserServlet extends HttpServlet {
             userDAO.create(User.builder().name(name).email(email).password(password).build());
             System.out.println("User was created!");
 
-            response.sendRedirect("index.jsp");
-            userDAO.closeConnection();
+            response.sendRedirect("home.jsp");
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                userDAO.closeConnection();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
